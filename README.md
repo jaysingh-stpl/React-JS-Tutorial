@@ -1,5 +1,5 @@
 # Flux functionality is used in React Js
-This project is demonstration of using flux in [https://reactjs.org](ReactJs).
+This project is demonstration of using flux in [ReactJs](https://reactjs.org).
 
 #### Installation
 
