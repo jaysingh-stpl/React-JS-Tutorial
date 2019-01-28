@@ -2,39 +2,42 @@ import dispatcher from '../dispatcher';
 
 export function createTodo(text) {
     dispatcher.dispatch({
-        type:"CREATE_TODO",
-        text,
+        type: "CREATE_TODO",
+        text
     })
 }
-export function deleteTodo(id) {
+export function deleteTodo(todoId) {
     dispatcher.dispatch({
-        type:"DELETE_TODO",
-        id,
+        type: "DELETE_TODO",
+        todoId
     })
 }
-export function updateTodo(id,text) {
+export function updateTodo(id, title,message) {
     dispatcher.dispatch({
-        type:"UPDATE_TODO",
+        type: "UPDATE_TODO",
         id,
-        text,
+        title,
+        message
     })
 }
 export function reloadTodos() {
     /*axios.get("somurl.com").then((data)=>{
-        console.log("some data received ",data);
-    });*/
+     console.log("some data received ",data);
+     });*/
 
-    dispatcher.dispatch({type:"FETCH_TODOS"});
-    setTimeout(()=>{
+    dispatcher.dispatch({type: "FETCH_TODOS"});
+    setTimeout(()=> {
         dispatcher.dispatch({
-            type:"RECEIVE_TODOS",
-            todos:[
-                {id:1,text:"Pay Bills",complete:true},
-                {id:2,text:"Second Todo",complete:false},
-                {id:3,text:"Third Todo",complete:true},
-                {id:4,text:"Fourth Todo",complete: false},
+            type: "RECEIVE_TODOS",
+            todos: [
+                {id: 1, header:'First Todo', text: "Pay Bills", complete: true},
+                {id: 2, header:'Second Todo', text: "Pay Electricity Bills", complete: false},
+                {id: 3, header:'Third Todo', text: "Pay Water Bills", complete: true},
+                {id: 4, header:'Fourth Todo', text: "Pay Fees", complete: false},
+                {id: 5, header:'Fifth Todo', text: "Pay Tax", complete: true},
+                {id: 6, header:'Six Todo', text: "Buy some products", complete: false}
             ]
         });
-    },1000)
+    }, 1000)
 
 }

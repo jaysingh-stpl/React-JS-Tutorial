@@ -3,6 +3,10 @@
 # dependencies
 /node_modules
 
+#PHP Storm file
+/.idea
+
+
 # testing
 /coverage
 
