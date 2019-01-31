@@ -12,22 +12,21 @@ export default class Features extends Component {
         this.getTodos = this.getTodos.bind(this);
     }
 
+    getTodos() {
+        this.setState({todos: TodoActions.getAllTodo()})
+    }
+
     componentWillMount() {
-        TodoStore.on("change", ()=> {
-            this.setState({todos: TodoStore.getAll(),})
-        })
+        TodoStore.addChangeListener(()=> {
+            this.setState({todos: TodoStore.getAll()})
+        });
     }
 
     componentWillUnmount() {
-        TodoStore.removeListener("change", this.getTodos)
-    }
-
-    getTodos() {
-        this.setState({todos: TodoStore.getAll(),})
+        TodoStore.removeChangeListener(this.getTodos)
     }
 
     createTodo() {
-        //this.props.history.replace('/about')
         TodoActions.createTodo("To do created by JAY SINGH");
     }
 

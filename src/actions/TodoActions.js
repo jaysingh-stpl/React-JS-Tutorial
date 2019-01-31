@@ -20,6 +20,11 @@ export function updateTodo(id, title,message) {
         message
     })
 }
+export function getAllTodo() {
+    dispatcher.dispatch({
+        type: "GET_ALL_TODO"
+    })
+}
 export function reloadTodos() {
     /*axios.get("somurl.com").then((data)=>{
      console.log("some data received ",data);
